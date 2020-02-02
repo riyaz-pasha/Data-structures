@@ -40,6 +40,21 @@ void append(struct Node **headNode_ref, int new_data)
     return;
 }
 
+void insertAfter(struct Node *prev_node, int new_data)
+{
+    if (prev_node == NULL)
+    {
+        printf("Previous node cannot be null");
+        return;
+    }
+
+    struct Node *new_node = (struct Node *)malloc(sizeof(struct Node));
+    new_node->data = new_data;
+    new_node->nextNode = prev_node->nextNode;
+    prev_node->nextNode = new_node;
+    return;
+}
+
 int main(int argc, char const *argv[])
 {
     struct Node *headNode = NULL;
@@ -59,6 +74,11 @@ int main(int argc, char const *argv[])
 
     append(&headNode, 33);
     printf("headNode->nextNode->nextNode->data-%d\n", headNode->nextNode->nextNode->data);
+
+    printf("\n**************************************************************\n");
+
+    insertAfter(headNode->nextNode->nextNode, 44);
+    printf("headNode->nextNode->nextNode->nextNode->data-%d\n", headNode->nextNode->nextNode->nextNode->data);
 
     printf("\n**************************************************************\n");
 
