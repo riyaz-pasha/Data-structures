@@ -1,7 +1,7 @@
 #include <stdio.h>
 int main(int argc, char const *argv[])
 {
-    int intArray[5] = {1, 2, 3, 4, 5};
+    int intArray[5] = {10, 20, 30, 40, 50};
     int *pointerToAnIntArray;
 
     printf("&intArray-%p\n", &intArray);
@@ -16,6 +16,11 @@ int main(int argc, char const *argv[])
     printf("pointerToAnIntArray-%p\n", pointerToAnIntArray);
     printf("*pointerToAnIntArray-%d\n", *pointerToAnIntArray); // accesses the first element of the array
     printf("*intArray-%d\n", *intArray);
+
+    printf("\n**************************************************************\n");
+    printf("*pointerToAnIntArray+1-%d\n", *pointerToAnIntArray + 1);     // accesses the first element of the array and increment it by 1
+    printf("pointerToAnIntArray+1-%p\n", pointerToAnIntArray + 1);       // accesses the second elements address
+    printf("*(pointerToAnIntArray+1)-%d\n", *(pointerToAnIntArray + 1)); // accesses the second element of the array
 
     return 0;
 }
