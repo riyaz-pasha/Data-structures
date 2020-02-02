@@ -22,5 +22,10 @@ int main(int argc, char const *argv[])
     printf("pointerToAnIntArray+1-%p\n", pointerToAnIntArray + 1);       // accesses the second elements address
     printf("*(pointerToAnIntArray+1)-%d\n", *(pointerToAnIntArray + 1)); // accesses the second element of the array
 
+    printf("\n**************************************************************\n");
+    printf("*pointerToAnIntArray+2-%d\n", *pointerToAnIntArray + 2);     // accesses the first element of the array and increment it by 2
+    printf("pointerToAnIntArray+2-%p\n", pointerToAnIntArray + 2);       // accesses the third elements address
+    printf("*(pointerToAnIntArray+2)-%d\n", *(pointerToAnIntArray + 2)); // accesses the third element of the array
+
     return 0;
 }
