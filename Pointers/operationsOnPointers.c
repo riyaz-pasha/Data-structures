@@ -9,8 +9,13 @@ int main(int argc, char const *argv[])
     printf("intArray[0]-%d\n", intArray[0]);
     printf("*intArray-%d\n", *intArray); // will prints the first element of the array
 
+    printf("\n**************************************************************\n");
     // pointerToAnIntArray = &intArray; incompatible pointer types assigning to 'int *' from 'int (*)[5]
     pointerToAnIntArray = intArray;
+    printf("intArray-%p\n", intArray);
+    printf("pointerToAnIntArray-%p\n", pointerToAnIntArray);
+    printf("*pointerToAnIntArray-%d\n", *pointerToAnIntArray); // accesses the first element of the array
+    printf("*intArray-%d\n", *intArray);
 
     return 0;
 }
