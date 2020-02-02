@@ -55,17 +55,26 @@ void insertAfter(struct Node *prev_node, int new_data)
     return;
 }
 
+void printList(struct Node *node)
+{
+    while (node != NULL)
+    {
+        printf("%d\n", node->data);
+        node = node->nextNode;
+    }
+}
+
 int main(int argc, char const *argv[])
 {
     struct Node *headNode = NULL;
     printf("&headNode-%p\n", &headNode);
 
-    push(&headNode, 11);
+    push(&headNode, 22);
     printf("headNode->data-%d\n", headNode->data);
     printf("headNode-%p\n", headNode);
     printf("\n**************************************************************\n");
 
-    push(&headNode, 22);
+    push(&headNode, 11);
     printf("headNode->data-%d\n", headNode->data);
     printf("headNode-%p\n", headNode);
     printf("headNode->nextNode-%p\n", headNode->nextNode);
@@ -80,6 +89,9 @@ int main(int argc, char const *argv[])
     insertAfter(headNode->nextNode->nextNode, 44);
     printf("headNode->nextNode->nextNode->nextNode->data-%d\n", headNode->nextNode->nextNode->nextNode->data);
 
+    printf("\n**************************************************************\n");
+
+    printList(headNode);
     printf("\n**************************************************************\n");
 
     return 0;
