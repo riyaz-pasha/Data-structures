@@ -6,6 +6,15 @@ struct Node
     struct Node *nextNode;
 };
 
+void printList(struct Node *node)
+{
+    while (node != NULL)
+    {
+        printf("%d\n", node->data);
+        node = node->nextNode;
+    }
+}
+
 int main(int argc, char const *argv[])
 {
     struct Node *headNode = NULL;
@@ -40,6 +49,8 @@ int main(int argc, char const *argv[])
     printf("(*thirdNode).data-%d\n", (*thirdNode).data);
     printf("thirdNode->data-%d\n", thirdNode->data);
     printf("\n**************************************************************\n");
+
+    printList(headNode);
 
     return 0;
 }
