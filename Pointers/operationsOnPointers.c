@@ -27,5 +27,13 @@ int main(int argc, char const *argv[])
     printf("pointerToAnIntArray+2-%p\n", pointerToAnIntArray + 2);       // accesses the third elements address
     printf("*(pointerToAnIntArray+2)-%d\n", *(pointerToAnIntArray + 2)); // accesses the third element of the array
 
+    printf("\n**************************************************************\n");
+    for (int i = 0; i < 5; i++)
+    {
+        printf("pointerToAnIntArray-%p\n", pointerToAnIntArray);
+        printf("*pointerToAnIntArray-%d\n\n", *pointerToAnIntArray);
+
+        pointerToAnIntArray++;
+    }
     return 0;
 }
