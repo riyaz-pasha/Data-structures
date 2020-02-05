@@ -24,17 +24,41 @@ void printListRecusrion(struct Node *node)
     return printListRecusrion(node->nextNode);
 }
 
+int getLength(struct Node *node)
+{
+    int length = 0;
+    while (node != NULL)
+    {
+        length += 1;
+        node = node->nextNode;
+    }
+    return length;
+}
+
 int main(int argc, char const *argv[])
 {
     struct Node *head_node;
 
+    printf("Length : %d\n", getLength(head_node));
+    printf("\n**************************************************************\n");
+
     push(&head_node, 5);
+    printListRecusrion(head_node);
+    printf("Length : %d\n", getLength(head_node));
+    printf("\n**************************************************************\n");
+
     push(&head_node, 4);
     push(&head_node, 3);
+
+    printListRecusrion(head_node);
+    printf("Length : %d\n", getLength(head_node));
+    printf("\n**************************************************************\n");
+
     push(&head_node, 2);
     push(&head_node, 1);
 
     printListRecusrion(head_node);
+    printf("Length : %d\n", getLength(head_node));
     printf("\n**************************************************************\n");
 
     return 0;
