@@ -15,6 +15,14 @@ void printList(struct Node *node)
     }
 }
 
+void printListUsingRecursion(struct Node *node)
+{
+    if (node == NULL)
+        return;
+    printf("%d\n", node->data);
+    printListUsingRecursion(node->nextNode);
+}
+
 int main(int argc, char const *argv[])
 {
     struct Node *headNode = NULL;
@@ -51,6 +59,10 @@ int main(int argc, char const *argv[])
     printf("\n**************************************************************\n");
 
     printList(headNode);
+    printf("\n**************************************************************\n");
+    printf("printing List Using Recursion\n");
+
+    printListUsingRecursion(headNode);
 
     return 0;
 }
