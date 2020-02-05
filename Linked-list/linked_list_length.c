@@ -35,16 +35,25 @@ int getLength(struct Node *node)
     return length;
 }
 
+int getLengthUsingRecursion(struct Node *node)
+{
+    if (node == NULL)
+        return 0;
+    return 1 + getLengthUsingRecursion(node->nextNode);
+}
+
 int main(int argc, char const *argv[])
 {
     struct Node *head_node;
 
     printf("Length : %d\n", getLength(head_node));
+    printf("getLengthUsingRecursion : %d\n", getLengthUsingRecursion(head_node));
     printf("\n**************************************************************\n");
 
     push(&head_node, 5);
     printListRecusrion(head_node);
     printf("Length : %d\n", getLength(head_node));
+    printf("getLengthUsingRecursion : %d\n", getLengthUsingRecursion(head_node));
     printf("\n**************************************************************\n");
 
     push(&head_node, 4);
@@ -52,6 +61,7 @@ int main(int argc, char const *argv[])
 
     printListRecusrion(head_node);
     printf("Length : %d\n", getLength(head_node));
+    printf("getLengthUsingRecursion : %d\n", getLengthUsingRecursion(head_node));
     printf("\n**************************************************************\n");
 
     push(&head_node, 2);
@@ -59,6 +69,7 @@ int main(int argc, char const *argv[])
 
     printListRecusrion(head_node);
     printf("Length : %d\n", getLength(head_node));
+    printf("getLengthUsingRecursion : %d\n", getLengthUsingRecursion(head_node));
     printf("\n**************************************************************\n");
 
     return 0;
