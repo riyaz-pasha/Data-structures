@@ -47,6 +47,29 @@ void deleteNode(struct Node **head_node_ref, int delete_node_data)
     return;
 }
 
+void deleteNodeAtPositionOf(struct Node **head_node_ref, int position)
+{
+    if (*head_node_ref == NULL)
+        return;
+    struct Node *temp_node = *head_node_ref;
+    if (position == 0)
+    {
+        *head_node_ref = temp_node->nextNode;
+        free(temp_node);
+        return;
+    }
+    for (int index = 0; temp_node != NULL && index < position-1; index++)
+    {
+        temp_node = temp_node->nextNode;
+    }
+    if (temp_node == NULL || temp_node->nextNode == NULL)
+        return;
+    struct Node *new_next_node = temp_node->nextNode->nextNode;
+    free(temp_node->nextNode);
+    temp_node->nextNode = new_next_node;
+    return;
+}
+
 int main(int argc, char const *argv[])
 {
     struct Node *headNode;
@@ -70,6 +93,17 @@ int main(int argc, char const *argv[])
     printf("\n**************************************************************\n");
 
     deleteNode(&headNode, 3);
+
+    printList(headNode);
+    printf("\n**************************************************************\n");
+
+    push(&headNode, 5);
+    push(&headNode, 6);
+    push(&headNode, 7);
+    printList(headNode);
+    printf("\n**************************************************************\n");
+
+    deleteNodeAtPositionOf(&headNode, 3);
 
     printList(headNode);
     printf("\n**************************************************************\n");
