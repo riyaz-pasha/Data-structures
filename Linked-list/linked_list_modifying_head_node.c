@@ -16,6 +16,12 @@ void pushAsHead(int data)
     head_node = new_node;
 }
 
+void deleteFirstNode()
+{
+    head_node = head_node->nextNode;
+    return;
+}
+
 void printList()
 {
     struct Node *node = head_node;
@@ -35,6 +41,14 @@ int main(int argc, char const *argv[])
     pushAsHead(2);
     pushAsHead(1);
 
+    printList();
+    printf("\n**************************************************************\n");
+
+    deleteFirstNode();
+    printList();
+    printf("\n**************************************************************\n");
+
+    deleteFirstNode();
     printList();
     printf("\n**************************************************************\n");
 
