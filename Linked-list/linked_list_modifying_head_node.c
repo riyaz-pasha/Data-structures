@@ -18,7 +18,15 @@ void pushAsHead(int data)
 
 void deleteFirstNode()
 {
-    head_node = head_node->nextNode;
+    if (head_node != NULL)
+    {
+        struct Node *temp = head_node;
+
+        head_node = head_node->nextNode;
+
+        // delete memory allocated for the previous head node
+        free(temp);
+    }
     return;
 }
 
