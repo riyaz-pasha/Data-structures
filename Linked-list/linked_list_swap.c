@@ -49,6 +49,6 @@ int main(int argc, char const *argv[])
     printList(head_node);
 
     swapNodes(&head_node, 2, 4);
-    printList(head_node);
+    printListUsingRecursion(head_node);
     return 0;
 }
