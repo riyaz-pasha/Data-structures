@@ -9,6 +9,7 @@ struct Node
 void push(struct Node **, int);
 void printListUsingRecursion(struct Node *node);
 void reverseLinkedList(struct Node **);
+void reverseLinkedListUsingRecursion(struct Node **);
 
 int main(int argc, char const *argv[])
 {
@@ -25,6 +26,11 @@ int main(int argc, char const *argv[])
 
     push(&head_node, 6);
     printListUsingRecursion(head_node);
+
+    printf("reverseLinkedListUsingRecursion\n");
+    reverseLinkedListUsingRecursion(&head_node);
+    printListUsingRecursion(head_node);
+
     return 0;
 }
 
@@ -43,6 +49,23 @@ void reverseLinkedList(struct Node **head_node_ref)
         current_node = next_node;
     }
     *head_node_ref = prev_node;
+}
+
+void reverseUsingRecursion(struct Node **head_node_ref, struct Node *node)
+{
+    if (node->nextNode == NULL)
+    {
+        (*head_node_ref) = node;
+        return;
+    }
+    reverseUsingRecursion(head_node_ref, node->nextNode);
+    node->nextNode->nextNode = node;
+    node->nextNode = NULL;
+}
+
+void reverseLinkedListUsingRecursion(struct Node **head_node_ref)
+{
+    reverseUsingRecursion(head_node_ref, *head_node_ref);
 }
 
 void push(struct Node **head_node_ref, int new_data)
